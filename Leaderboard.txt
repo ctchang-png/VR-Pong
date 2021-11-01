@@ -1,0 +1,8 @@
+CHRIS, #100
+CHANG, #90
+IS, #80
+COOL, #70
+MOM, #50
+ROSH, #30
+BEEP, #30
+TEST, #30

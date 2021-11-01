@@ -1,0 +1,47 @@
+VR-Pong
+
+An expansion of the classic computer game, Pong, that places the user behind the paddle, 
+using camera input to control the paddle as well as changing the environment based on head movement.
+
+I've seen two projects comparable to mine online.  The aim of my project is to combine the most interesting
+concept from the two into one project. The first project that I've seen is a game called curveball.  The game
+plays like PONG, however, the game is in 3D, and the user exists behind the paddle, changing its X and Y position.
+Additionally, the player can put spin on the ball based on paddle movement.  The game also contains an AI to play
+against.  I intend for my game to play similarly to curveball. The other project that I've seen online is a program
+which tracks user head movent, and, based on a pre-made 3D still frame, alters the projection of the still onto the
+screen to emulate the changing perspective. Using openCV, I want to implement this feature, as well as a feature to
+track a hand-held paddle in order to make a curveball-like game that feels like VR.
+
+The project will use the 112 modal app framework, and app-wide methods will read the user's camera, updating app-wide
+attributes that may be accessed by various modes.  Two essential modes will be GameMode, where the user plays the game,
+and calibration mode, where the detection threshold for the paddle may be adjusted based on lighting.
+
+The paddle tracking has already been dealt with for the most part. It uses HSV min and max sliders, as well as displayed mask
+to allow the user to self-calibrate the color threshold for their paddle. It works relatively well, however the tracking
+is very buggy with duller paddle colors. I will be looking into adaptive thresholding to address this.  OpenCV comes with 
+pretrained haar-cascades for frontal-face recognition and also has builtin methods to translate detected objects into x, y, w, h
+values.  Based on the x, y of the players face, I will use shear mapping to alter the projection of the 3D environment onto the screen.
+For the opponent AÍ, I plan on giving the AI knowledge of the ball's x and y, as well as vx and vy, to predict its future position.
+It will have no knowledge of spin, so it shouldn't be a perfect AI, which is good.
+
+Timeline:
+TP1: implement head tracking, paddle tracking, paddle movement, ball movement
+TP2: implement AI, clean up CV features and try to speed up the code
+TP3: make the game user friendly, add helper modes, splashscreens, scores, etc...
+
+Version control:
+Create a new backup every time a large feature is implemented or a TPX meeting occurs
+
+Modules:
+OpenCV
+
+TP2 update:
+No new problems, but still having issues with lag.
+
+TP3 update:
+Added click calibration
+Added buttons
+Added nice graphics
+Added score/leaderboard
+Improved vision performance
+
